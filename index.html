@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="hi"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>न्यूज़ साइट</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav button {
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 20px;
+}
+
+.article {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.article h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.article p {
+    color: #333;
+}</style></head> 
+ <body> 
+  <header> 
+   <h1>समाचार पोर्टल</h1> 
+   <nav> <button onclick="fetchNews()">न्यूज़ लाओ</button> 
+   </nav> 
+  </header> 
+  <main id="news-container"> 
+   <div class="loading hidden">
+    लोड हो रहा है...
+   </div> 
+   <div id="articles"></div> 
+  </main> 
+  <footer> 
+   <p>© 2024 न्यूज़ साइट</p> 
+  </footer> 
+  <script src="script.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">async function fetchNews() {
+    document.querySelector('.loading').classList.remove('hidden');
+    const response = await fetch('e841808a1a7e4da38969154207c42134');
+    const data = await response.json();
+    displayNews(data.articles);
+}
+
+function displayNews(articles) {
+    const articlesContainer = document.getElementById('articles');
+    articlesContainer.innerHTML = '';
+    articles.forEach(article => {
+        const articleElement = document.createElement('div');
+        articleElement.className = 'article';
+        articleElement.innerHTML = `
+            <h2>${article.title}</h2>
+            <p>${article.description}</p>
+            <a href="${article.url}" target="_blank">पूरा पढ़ें</a>
+        `;
+        articlesContainer.appendChild(articleElement);
+    });
+    document.querySelector('.loading').classList.add('hidden');
+}</script></body></html>
