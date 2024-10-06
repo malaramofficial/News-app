@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="hi"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>दिवाली शुभकामनाएँ</title> 
+  <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://pin.it/5lkm62aGJ'); /* दिवाली से सम्बंधित बैकग्राउंड इमेज URL */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* बॉक्स के चारों ओर दीयों की एनीमेशन */
+        #greeting-container {
+            position: relative;
+            background-color: rgba(255, 165, 0, 0.8); /* हल्का नारंगी रंग */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(255, 223, 0, 0.5); /* दीयों जैसी चमक */
+            margin: auto;
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffdd00;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* रौशनी का प्रभाव */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 10px;
+            border: 2px solid #ffcc00; /* सुनहरे रंग की बॉर्डर */
+            box-shadow: 0px 0px 8px rgba(255, 223, 0, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #ff5722; /* गहरे नारंगी रंग */
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff7043;
+            transform: scale(1.05); /* हल्का बड़ा हो */
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .decoration {
+            margin-top: 40px;
+            color: #fff;
+        }
+
+        .decoration ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .decoration li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* क्रेडिट और Instagram लिंक */
+        #credit-section {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #ffcc00;
+        }
+
+        #credit-section a {
+            color: #ffdd00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #credit-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* दीयों का घूर्णन प्रभाव */
+        .diya-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            animation: rotateDiya 10s linear infinite;
+        }
+
+        .diya {
+            width: 30px;
+            height: 30px;
+            background: url('https://example.com/diya_image.png') no-repeat center center;
+            background-size: contain;
+            position: absolute;
+        }
+
+        /* दीयों को चारों ओर रखने के लिए */
+        .diya:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .diya:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
+        .diya:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .diya:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
+
+        /* एनीमेशन */
+        @keyframes rotateDiya {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* मोबाइल के लिए रेस्पॉन्सिव डिजाइन */
+        @media only screen and (max-width: 600px) {
+            #greeting-container {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 1.3rem;
+            }
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div id="greeting-container"> <!-- दीयों की एनीमेशन --> 
+   <div class="diya-container"> 
+    <div class="diya"></div> 
+    <div class="diya"></div> 
+    <div class="diya"></div> 
+    <div class="diya"></div> 
+   </div> 
+   <h1>🎉 दिवाली शुभकामनाएँ 🎉</h1> 
+   <p>अपने नाम के साथ शुभकामनाएँ साझा करें!</p> 
+   <input type="text" id="userName" placeholder="अपना नाम दर्ज करें"> <button onclick="sendGreeting()">भेजें</button> 
+   <div class="message" id="message"></div> 
+  </div> 
+  <div class="decoration"> 
+   <h2>🎇 दिवाली सजावट के सुझाव 🎇</h2> 
+   <ul> 
+    <li>✨ दीपक और मोमबत्तियाँ से घर को सजाएं</li> 
+    <li>🌸 रंगोली बनाएं और फूलों की माला से सजावट करें</li> 
+    <li>💡 रंगीन लाइट्स और झालर का इस्तेमाल करें</li> 
+    <li>🎆 पटाखों और आतिशबाज़ी का आनंद लें</li> 
+   </ul> 
+  </div> <!-- क्रेडिट और Instagram लिंक --> 
+  <div id="credit-section"> 
+   <p>यह वेबसाइट <strong>Malaramofficial</strong> द्वारा बनाई गई है।</p> 
+   <p>Instagram पर फॉलो करें: <a href="https://www.instagram.com/malaramofficial?igsh=YTgwbWhuY3NjYnhu" target="_blank">@malaramofficial</a> </p> 
+  </div> 
+  <script>
+        function sendGreeting() {
+            const userName = document.getElementById('userName').value;
+            if (userName.trim() === "") {
+                alert("कृपया अपना नाम दर्ज करें");
+                return;
+            }
+
+            // यूज़र के नाम और वेबसाइट लिंक के साथ संदेश तैयार करना
+            const greetingMessage = `${userName} की तरफ से आपको और आपके परिवार को दिवाली की हार्दिक शुभकामनाएं! 🎉\n\nइस वेबसाइट पर जाएं: https://malaramofficial.github.io/News-app/`;
+            document.getElementById('message').innerText = greetingMessage;
+
+            // WhatsApp लिंक जनरेट करना
+            const encodedMessage = encodeURIComponent(greetingMessage);
+            const whatsappLink = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+
+            // WhatsApp लिंक पर रीडायरेक्ट करना
+            window.open(whatsappLink, '_blank');
+
+            // नाम को खाली करें
+            document.getElementById('userName').value = "";
+        }
+    </script> 
+ 
+</body></html>
