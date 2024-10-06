@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दिवाली शुभकामनाएँ</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000; /* बैकग्राउंड को काला करें ताकि टेक्स्ट स्पष्ट हो */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0; /* मार्जिन को 0 करें */
+        }
+
+        #greeting-container {
+            position: relative;
+            background-color: rgba(255, 165, 0, 0.8); /* हल्का नारंगी बैकग्राउंड */
+            padding: 40px; /* पैडिंग बढ़ाएं */
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(255, 223, 0, 0.5);
+            margin: auto;
+            max-width: 600px;
+            width: 90%; /* चौड़ाई को 90% करें ताकि मोबाइल पर अच्छी दिखे */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* कॉलम में कंटेंट को व्यवस्थित करें */
+            align-items: center; /* केंद्र में रखें */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffdd00; /* टेक्स्ट का रंग */
+            margin-bottom: 20px; /* नीचे के लिए मार्जिन */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 10px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0px 0px 8px rgba(255, 223, 0, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            background-color: #fff; /* इनपुट बैकग्राउंड को सफेद */
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff7043;
+            transform: scale(1.05);
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .shayari {
+            margin-top: 40px;
+            color: #ffdd00;
+            font-size: 1.2rem;
+            line-height: 1.5; /* लाइन स्पेसिंग */
+        }
+
+        #credit-section {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #ffcc00;
+        }
+
+        #credit-section a {
+            color: #ffdd00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #credit-section a:hover {
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #greeting-container {
+                padding: 20px; /* मोबाइल पर पैडिंग कम करें */
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 1.3rem;
+            }
+
+            .shayari {
+                font-size: 1.1rem; /* मोबाइल पर शायरी का आकार */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="greeting-container">
+        <h1>दिवाली शुभकामनाएँ</h1>
+        <p>अपने नाम के साथ शुभकामनाएँ साझा करें!</p>
+        
+        <input type="text" id="userName" placeholder="अपना नाम दर्ज करें">
+        <button onclick="sendGreeting()">भेजें</button>
+        
+        <div class="message" id="message"></div>
+    </div>
+
+    <div class="shayari">
+        <h2>दिवाली शायरी</h2>
+        <p>हर तरफ खुशियाँ, हर ओर रौनक हो,<br>
+           दीयों की चमक से घरों में हलचल हो।<br>
+           सुख, शांति, समृद्धि का हो इस बार आगाज़,<br>
+           दीप जलाकर मनाएं सब मिलकर ये त्योहार।</p>
+    </div>
+
+    <div id="credit-section">
+        <p>यह वेबसाइट <strong>Malaramofficial</strong> द्वारा बनाई गई है।</p>
+        <p>Instagram पर फॉलो करें: 
+            <a href="https://www.instagram.com/malaramofficial?igsh=YTgwbWhuY3NjYnhu" target="_blank">@malaramofficial</a>
+        </p>
+    </div>
+
+    <script>
+        function sendGreeting() {
+            const userName = document.getElementById('userName').value;
+            if (userName.trim() === "") {
+                alert("कृपया अपना नाम दर्ज करें");
+                return;
+            }
+
+            // शुभकामनाएँ यूज़र नाम के साथ वेबसाइट पर दिखाना
+            const greetingMessage = `${userName} की तरफ से आपको और आपके परिवार को दिवाली की हार्दिक शुभकामनाएं!`;
+            document.getElementById('message').innerText = greetingMessage;
+
+            // WhatsApp लिंक जनरेट करना
+            const encodedMessage = encodeURIComponent(`आपका दोस्त ${userName} ने आपको एक गोपनीय संदेश भेजा है। इसे पढ़ने के लिए लिंक पर क्लिक करें: https://wu8.in/14Sve5f3`);
+            const whatsappLink = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+            window.open(whatsappLink, '_blank');
+
+            // नाम को खाली करें
+            document.getElementById('userName').value = "";
+        }
+    </script>
+
+
+</body></html>
